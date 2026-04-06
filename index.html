@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Gift Image</title>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial;
+        margin-top: 100px;
+    }
+
+    #countdown {
+        font-size: 60px;
+        display: none;
+    }
+
+    #gift {
+        position: relative;
+        width: 200px;
+        margin: 30px auto;
+        display: none;
+        cursor: pointer;
+    }
+
+    #box {
+        width: 100%;
+    }
+
+    #lid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform-origin: top;
+        transition: transform 0.6s ease;
+    }
+
+    /* hiệu ứng mở */
+    #gift.open #lid {
+        transform: rotateX(130deg) translateY(-20px);
+    }
+
+    #result {
+        font-size: 50px;
+        display: none;
+        margin-top: 20px;
+        color: green;
+    }
+</style>
+</head>
+<body>
+
+<button onclick="start()">Bấm vào 🎉</button>
+
+<div id="countdown"></div>
+
+<div id="gift" onclick="openGift()">
+    <img id="box" src="box.png">
+    <img id="lid" src="lid.png">
+</div>
+
+<div id="result"></div>
+
+<script>
+let numberFixed = 7;
+
+function start() {
+    let count = 10;
+    const el = document.getElementById("countdown");
+    el.style.display = "block";
+
+    const interval = setInterval(() => {
+        el.innerText = count;
+        count--;
+
+        if (count < 0) {
+            clearInterval(interval);
+            el.style.display = "none";
+            document.getElementById("gift").style.display = "block";
+        }
+    }, 1000);
+}
+
+function openGift() {
+    const gift = document.getElementById("gift");
+    gift.classList.add("open");
+
+    setTimeout(() => {
+        const result = document.getElementById("result");
+        result.innerText = "🎁 Số của bạn là: " + numberFixed;
+        result.style.display = "block";
+    }, 600);
+}
+</script>
+
+</body>
+</html>
