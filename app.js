@@ -4,8 +4,6 @@ function start(soLuong) {
     const el = document.getElementById("countdown");
     el.style.display = "block";
 
-
-
     const interval = setInterval(() => {
         el.innerText = count;
         count--;
