@@ -2,9 +2,14 @@ body {
     text-align: center;
     font-family: Arial;
     margin: 0;
+    background-image: url("bg.jpg");
+    background-position: left 0 bottom 0px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 h1{
-    background: rgb(140 0 171);
+    background: rgb(58 145 216);
     color: #fff;
     padding: 20px;
     font-weight: 100;
